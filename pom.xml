@@ -34,7 +34,7 @@
 	</dependencyManagement>
 	<build>
 		<plugins>
-			<plugin>
+			<!--<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.10.1</version>
@@ -44,7 +44,7 @@
 					<fork>true</fork>
 					<executable>C:\Program Files\Java\jdk1.8.0_161\bin\javac</executable>
 				</configuration>
-			</plugin>
+			</plugin> -->
 		</plugins>
 	</build>
 </project>
