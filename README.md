@@ -1,6 +1,3 @@
-# sample-java-maven
-DevOps demo
-
 
 // multistage
 pipeline {
