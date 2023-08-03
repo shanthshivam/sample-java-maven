@@ -5,7 +5,9 @@ DevOps demo
 // multistage
 pipeline {
     agent any
-
+    tools { 
+        maven 'M3' 
+    }
         stages {
             stage('Source') {
                 steps {
@@ -16,7 +18,7 @@ pipeline {
                 steps {
                     script {
                         def mvnHome = tool 'M3'
-                        bat "${mvnHome}\\bin\\mvn -B verify"
+                        sh "mvn -B verify"
                     }
                 }
             }
@@ -25,7 +27,7 @@ pipeline {
                     script {
                         def mvnHome = tool 'M3'
                         withSonarQubeEnv() {
-                            bat "${mvnHome}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=java-maven"
+                            sh "mvn clean verify sonar:sonar -Dsonar.projectKey=java-maven"
                         }
                     }
                 }
@@ -41,7 +43,7 @@ pipeline {
                 }
             }
             
-            stage ("Artifactory Publish"){
+            /** stage ("Artifactory Publish"){
                 steps{
                     script{
                             def server = Artifactory.server 'artifactory'
@@ -57,6 +59,6 @@ pipeline {
                             server.publishBuildInfo buildInfo
                     }
                 }
-        }
+        } **/
         }
 }
